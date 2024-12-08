@@ -1,0 +1,98 @@
+
+
+  core-js-conditions-n-loops
+    ✔ isPositive should return a boolean value whether a number is positive
+    ✔ getMaxNumber should return the maximum of three numbers
+    ✔ canQueenCaptureKing should return true if a queen can capture a king
+    ✔ isIsoscelesTriangle should return boolean whether the triangle is isosceles
+    ✔ convertToRomanNumerals should return the number converted to Roman numerals
+    ✔ convertNumberToString should the original number as a string with numbers replaced by words
+    ✔ isPalindrome should return a boolean value whether a string is palindrome
+    ✔ getIndexOf should return the index of the first occurrence if the string contains the desired letter
+    ✔ isContainNumber should bool value whether the number contains the desired digit
+    ✔ getBalanceIndex should returns the index of the balancer element
+    - getSpiralMatrix should return a matrix of size * size that is filled with numbers in ascending order
+    - rotateMatrix should return the original array rotated by an angle of 90 degrees clockwise
+    ✔ sortByAsc should return a sorted array
+012345
+1
+[ '0', '2', '4', <4 empty items>, '1', '3', '5' ]
+012345
+2
+[
+  '0',       '4',
+  undefined, undefined,
+  '3',       <6 empty items>,
+  '2',       undefined,
+  undefined, '1',
+  '5'
+]
+012345
+3
+[
+  '0',             undefined,
+  '3',             undefined,
+  undefined,       undefined,
+  undefined,       '1',
+  <9 empty items>, '4',
+  undefined,       undefined,
+  undefined,       undefined,
+  '2',             undefined,
+  '5'
+]
+qwerty
+1
+[ 'q', 'e', 't', <4 empty items>, 'w', 'r', 'y' ]
+qwerty
+2
+[
+  'q',       't',
+  undefined, undefined,
+  'r',       <6 empty items>,
+  'e',       undefined,
+  undefined, 'w',
+  'y'
+]
+qwerty
+3
+[
+  'q',             undefined,
+  'r',             undefined,
+  undefined,       undefined,
+  undefined,       'w',
+  <9 empty items>, 't',
+  undefined,       undefined,
+  undefined,       undefined,
+  'e',             undefined,
+  'y'
+]
+9068021873356233853453753426970547367542736955287245378096634337960746680016024215497943982844835677
+5
+[
+  '9',       '4',       '9',       '5',       undefined, undefined,
+  undefined, '5',       '0',       '3',       undefined, undefined,
+  undefined, undefined, undefined, undefined, undefined, undefined,
+  undefined, '6',       '3',       '0',       '7',       undefined,
+  undefined, undefined, '4',       '6',       '8',       undefined,
+  undefined, undefined, undefined, undefined, undefined, undefined,
+  undefined, undefined, undefined, undefined, undefined, undefined,
+  undefined, undefined, undefined, undefined, undefined, undefined,
+  undefined, undefined, undefined, undefined, undefined, undefined,
+  undefined, undefined, undefined, '0',       '7',       '4',
+  undefined, undefined, undefined, undefined, '6',       '3',
+  '8',       undefined, undefined, undefined, undefined, undefined,
+  undefined, undefined, undefined, undefined, '1',       '4',
+  '6',       undefined, undefined, undefined, undefined, '7',
+  '3',       '4',       undefined, undefined, undefined, undefined,
+  undefined, undefined, undefined, undefined, undefined, undefined,
+  undefined, undefined, undefined, undefined,
+  ... 669 more items
+]
+    1) shuffleChar should return a string in which characters with an odd index are moved to the end of the string at each iteration
+    - getNearestBigger should return the nearest larger number made up of the digits of the original number
+
+  core-js-conditions-n-loops optimal implementation
+    ✔ optimal implementation of convertNumberToString
+    ✔ speed test of sortByAsc
+8098397065047364389959355765761606283603948622987534938366980550889021318498582839495909494810010989179498266784965827421874531237984668320572278182415723044631491774894050406892961646655728218350395066248968906245627942391448334437518301118712014564024323745041151404896180173189536548381594990651088500912583571042174340092135177339473341028502621717769521025436344673346580313297383309804385337911266463070278032880132113310730611733384594516747533093295032087530697232911938675903802507152870508193586446603852941961258127900416851134245666610118110816753766591741680555526006459420050267813766158721428870511382230725146830209016056406014342000284954605800858059753486800609208841950355604334163371555892560578374303985231902191512301891172039225996564046602703382606183547666856774723451929688092985977856679772312677636055575065379819028536809540077585591964365519543506211881874709420418885565181342278531373386379322048702046624031972631072133652814220364454192073452297590167356949757208928
+10000
