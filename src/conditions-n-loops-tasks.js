@@ -412,23 +412,47 @@ function sortByAsc(arr2) {
  *  '012345', 3 => '024135' => '043215' => '031425'
  *  'qwerty', 3 => 'qetwry' => 'qtrewy' => 'qrwtey'
  */
-function shuffleChar(/* str, iterations) */) {
-  // let index = iterations;
-  // let newString = str.split('');
-  // const lengthString = newString.length;
-  // while (index > 0) {
-  //   const array = new Array(lengthString);
-  //   for (let i = 0, j = 0; i < lengthString; i += 2, j += 1) {
-  //     array[j] = newString[i];
-  //   }
-  //   for (let i = 1, j = lengthString / 2; i < lengthString; i += 2, j += 1) {
-  //     array[j] = newString[i];
-  //   }
-  //   newString = array;
-  //   index -= 1;
-  // }
-  // return `${[...newString]}`.replace(/,/g, '');
-  throw new Error('Not implemented');
+function shuffleChar(str, iterations) {
+  let stringEquals = '';
+
+  function dev(array) {
+    const result = [];
+    stringEquals = '';
+    let index = 0;
+    for (let i = 0; i < array.length; i += 2) {
+      result[index] = array[i];
+      index += 1;
+    }
+    for (let i = 1; i < array.length; i += 2) {
+      result[index] = array[i];
+      index += 1;
+    }
+    for (let i = 0; i < result.length; i += 1) {
+      stringEquals += result[i];
+    }
+    return result;
+  }
+
+  let newArray = str.split('');
+  let index = 0;
+  let flag = true;
+  for (let i = 0; i < iterations; i += 1) {
+    newArray = dev(newArray);
+    if (stringEquals === str) {
+      if (flag) {
+        index = i;
+        flag = false;
+      }
+      while (index + i < iterations) {
+        i += index + 1;
+      }
+    }
+  }
+  let resultString = '';
+  for (let i = 0; i < newArray.length; i += 1) {
+    resultString += newArray[i];
+  }
+  return resultString;
 }
 
 /**
@@ -448,8 +472,44 @@ function shuffleChar(/* str, iterations) */) {
  * @param {number} number The source number
  * @returns {number} The nearest larger number, or original number if none exists.
  */
-function getNearestBigger(/* number */) {
-  throw new Error('Not implemented');
+function getNearestBigger(number) {
+  let tempNumber = number;
+  const numberLength = Math.floor(Math.log10(number)) + 1;
+  const array = [];
+  let result = [];
+  let flag = true;
+  if (number < 10) return number;
+  for (let i = 0; i < numberLength; i += 1) {
+    array.unshift(tempNumber % 10);
+    tempNumber = Math.floor(tempNumber / 10);
+  }
+  for (let i = array.length - 1; i >= 0; i -= 1) {
+    if (i < array.length - 1 && flag && result.some((num) => num > array[i])) {
+      let check = array[i];
+      while (check < 10 && flag) {
+        check += 1;
+        for (let j = 0; j < result.length; j += 1) {
+          if (check === result[j]) {
+            const myNumber = result.splice(j, 1)[0];
+            result.unshift(array[i]);
+            result = result.sort((a, b) => a - b);
+            result.unshift(myNumber);
+            flag = false;
+            break;
+          }
+        }
+      }
+    } else {
+      result.unshift(array[i]);
+    }
+  }
+  tempNumber = 0;
+  let index = 1;
+  for (let i = array.length - 1; i >= 0; i -= 1) {
+    tempNumber += result[i] * index;
+    index *= 10;
+  }
+  return tempNumber;
 }
 
 module.exports = {
