@@ -334,8 +334,81 @@ function getBalanceIndex(arr) {
  *          [10, 9,  8,  7]
  *        ]
  */
-function getSpiralMatrix(/* size */) {
-  throw new Error('Not implemented');
+function getSpiralMatrix(size) {
+  if (!Number.isInteger(size) || size <= 0) {
+    return [];
+  }
+  const array = new Array(size);
+  for (let k = 0; k < size; k += 1) {
+    array[k] = new Array(size);
+  }
+  let i = 0;
+  let j = 0;
+  let number = 0;
+
+  function right() {
+    for (; j < size; j += 1) {
+      if (!array[i][j]) {
+        number += 1;
+        array[i][j] = number;
+      } else {
+        break;
+      }
+    }
+    i += 1;
+    j -= 1;
+  }
+
+  function down() {
+    for (; i < size; i += 1) {
+      if (!array[i][j]) {
+        number += 1;
+        array[i][j] = number;
+      } else {
+        break;
+      }
+    }
+    j -= 1;
+    i -= 1;
+  }
+
+  function left() {
+    for (; j >= 0; j -= 1) {
+      if (!array[i][j]) {
+        number += 1;
+        array[i][j] = number;
+      } else {
+        break;
+      }
+    }
+    i -= 1;
+    j += 1;
+  }
+
+  function up() {
+    for (; i >= 0; i -= 1) {
+      if (!array[i][j]) {
+        number += 1;
+        array[i][j] = number;
+      } else {
+        break;
+      }
+    }
+    i += 1;
+    j += 1;
+  }
+
+  while (number < size ** 2) {
+    right();
+    if (number > size ** 2) break;
+    down();
+    if (number > size ** 2) break;
+    left();
+    if (number > size ** 2) break;
+    up();
+    if (number > size ** 2) break;
+  }
+  return array;
 }
 
 /**
@@ -353,8 +426,24 @@ function getSpiralMatrix(/* size */) {
  *    [7, 8, 9]         [9, 6, 3]
  *  ]                 ]
  */
-function rotateMatrix(/* matrix */) {
-  throw new Error('Not implemented');
+function rotateMatrix(matrix) {
+  const matrix2 = matrix;
+  const arrayOut = new Array(matrix[0].length);
+  for (let i = 0; i < arrayOut.length; i += 1) {
+    arrayOut[i] = new Array(matrix.length);
+  }
+
+  for (let i = 0; i < matrix.length; i += 1) {
+    for (let j = 0; j < matrix[i].length; j += 1) {
+      arrayOut[j][arrayOut.length - 1 - i] = matrix[i][j];
+    }
+  }
+  for (let i = 0; i < arrayOut.length; i += 1) {
+    for (let j = 0; j < arrayOut[i].length; j += 1) {
+      matrix2[i][j] = arrayOut[i][j];
+    }
+  }
+  return matrix2;
 }
 
 /**
